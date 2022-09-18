@@ -102,7 +102,7 @@ const loop = () => {
     }
     
     duck.element.style.transform = `matrix(${duck.isFacingRight ? 1 : -1 },0,0,1, ${ duck.position.x }, ${ duck.position.y })`
-    console.log(duck)
+
     requestAnimationFrame(loop)
 }
 
