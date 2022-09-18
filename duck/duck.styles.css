@@ -1,0 +1,16 @@
+.duck {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    
+}
+
+.duck .sprite {
+    --sprite-size: 24px;
+
+    position: absolute;
+    
+    clip-path: polygon(0 0, 0 var(--sprite-size), var(--sprite-size) var(--sprite-size), var(--sprite-size) 0);
+}
