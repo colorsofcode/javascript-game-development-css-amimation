@@ -7,7 +7,7 @@ I like combining the web and game development, if you like what you see please d
 <a href="https://javascript-game-development-css-animation.stackblitz.io">View Demo on StackBlitz⚡️</a>
 ·
 <a href="https://stackblitz.com/edit/javascript-game-development-css-animation">Edit Demo on StackBlitz⚡️</a>
-.
+·
 <a href="https://github.com/colorsofcode/javascript-game-development-css-amimation/issues">Report Bug</a>
 
 <div align="center">
