@@ -1,3 +1,4 @@
+// Super basic implementation of a 2D vector
 const vector = {
     x:0, 
     y:0, 
@@ -7,42 +8,30 @@ const vector = {
     }
 }
 
+// The star of the show, the "Duck"
 const duck = {
     element: document.querySelector(".duck"),
-    sprite: document.querySelector(".duck").querySelector("img"),
     position: {...vector},
-    speed: 3,
-    isFacingRight: true,
+    speed: 6,
+    isFacingRight: true, 
     currentAnimationState: "",
-    animation: {
-        state: {
-            idle: [
-                { objectPosition: "0 0" },
-                { objectPosition: "-96px 0" }
-            ],
-            running: [
-                { objectPosition: "0 -24px" },
-                { objectPosition: "-96px -24px" }
-            ]
-        },
-        timing: {
-            duration: 400,
-            iterations: Infinity,
-            fill: "forwards",
-            easing: "steps(4)"
-        }
-    },
     changeAnimationState: function(newState) {
 
+        // if the state is the same as the one already applied, do nothing
         if (this.currentAnimationState === newState) return
 
-        this.sprite.animate(this.animation.state[newState], this.animation.timing)
+        // remove the current state
+        this.element.removeAttribute(this.currentAnimationState)
 
+        // set the new state
+        this.element.setAttribute(newState, "")
+
+        // update the current stored state
         this.currentAnimationState = newState
-
     }
 }
 
+// Basic input handling
 const input = {
     axis: {
         horizontal: 0,
@@ -82,6 +71,7 @@ document.addEventListener("keyup", (event) => {
     delete input.keyEvents[event.code]
 })
 
+// Main game loop
 const loop = () => {
 
     input.updateAxis()
@@ -100,7 +90,7 @@ const loop = () => {
     } else {
         duck.changeAnimationState("idle")
     }
-    
+
     duck.element.style.transform = `matrix(${duck.isFacingRight ? 1 : -1 },0,0,1, ${ duck.position.x }, ${ duck.position.y })`
 
     requestAnimationFrame(loop)

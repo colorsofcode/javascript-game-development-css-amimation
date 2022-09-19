@@ -1,16 +1,38 @@
 .duck {
+    --sprite-size: 96px; /* Add the size of each frame here */
+    --sprite-frames: 4; /* How many frames per animation*/
+    --sprite-duration: 100ms; /* How long each frame lasts */
+
+    --current-sprite-animation: 0; 
+
     display: inline-block;
-    position: relative;
+    position: realtive;
     overflow: hidden;
-    width: 24px;
-    height: 24px;
-    
+    width: var(--sprite-size);
+    height: var(--sprite-size);
+}
+.duck .sprite {
+    position: absolute;
+    image-rendering: pixelated;
+    animation: spriteAnimation calc(var(--sprite-frames) * var(--sprite-duration)) infinite steps(var(--sprite-frames)) forwards;
+    clip-path: polygon(0 0, 0 var(--sprite-size), var(--sprite-size) var(--sprite-size), var(--sprite-size) 0);
 }
 
-.duck .sprite {
-    --sprite-size: 24px;
+/* add an element tag for each animation */
+.duck[idle] .sprite {
+    --current-sprite-animation: 0;
+}
 
-    position: absolute;
-    
-    clip-path: polygon(0 0, 0 var(--sprite-size), var(--sprite-size) var(--sprite-size), var(--sprite-size) 0);
+.duck[running] .sprite {
+    --current-sprite-animation: 1;
+}
+
+@keyframes spriteAnimation {
+    from {
+        object-position: 0 calc((var(--current-sprite-animation) * var(--sprite-size)) * -1);
+    }
+
+    to {
+        object-position: calc((var(--sprite-frames) * var(--sprite-size)) * -1) calc((var(--current-sprite-animation) * var(--sprite-size)) * -1);
+    }
 }
