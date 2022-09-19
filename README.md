@@ -11,7 +11,7 @@ I like combining the web and game development, if you like what you see please d
 <a href="https://github.com/colorsofcode/javascript-game-development-css-amimation/issues">Report Bug</a>
 
 <div align="center">
-   <img src="./art/duck-running-around.gif" alt="Logo" width="1280" height="720">
+   <img src="./art/duck-running-around.gif" alt="Logo" width="640" height="360">
 </div>
 
 
