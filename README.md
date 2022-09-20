@@ -17,6 +17,14 @@ I like combining the web and game development, if you like what you see please d
 
 Small example showing how you can make game sprite animations using CSS with Javascript movement.
 
+All of the game logic happens in the `game.js` file.
+
+All of the CSS animation (exept states) is in the `duck/duck.styles.css`
+
+You use keyboard `A W S D` navigation to move around 
+
+PS. the images are hosted on firebase to make the demo work on StackBlitz
+
 <!-- PREREQUISITES -->
 ## Prerequisites
 
@@ -57,4 +65,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- ACKKNOWLEDGE -->
 ## Acknowledgments
 
-To all the people on Twitter that I have connected with over the years.
+To all the indiedevs that I have connected with over the years.

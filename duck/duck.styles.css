@@ -1,3 +1,9 @@
+/**
+    For this CSS animation to work, it relies on that 
+    the sprite sheet is one animation per row
+    and all have the same amount of frames
+*/
+
 .duck {
     --sprite-size: 96px; /* Add the size of each frame here */
     --sprite-frames: 4; /* How many frames per animation*/
@@ -13,12 +19,24 @@
 }
 .duck .sprite {
     position: absolute;
-    image-rendering: pixelated;
+    image-rendering: pixelated; /* for those crisp web pixels */
+
+    /** 
+        This would translate it to something in the lines with 
+        animation: spriteAnimation 400ms infinite steps(4) forwards;
+    */
     animation: spriteAnimation calc(var(--sprite-frames) * var(--sprite-duration)) infinite steps(var(--sprite-frames)) forwards;
-    clip-path: polygon(0 0, 0 var(--sprite-size), var(--sprite-size) var(--sprite-size), var(--sprite-size) 0);
 }
 
-/* add an element tag for each animation */
+/**
+    Adding an attribute is what determines what gets animated. 
+    You should add all your animations here with the 
+    correct row number.
+
+    In this case I have added 2 animations 
+    - "idle" on the first row
+    - "running" on the second row
+*/
 .duck[idle] .sprite {
     --current-sprite-animation: 0;
 }
@@ -27,6 +45,26 @@
     --current-sprite-animation: 1;
 }
 
+/**
+    This is the main animation, it multiples the current 
+    animation row with the sprite size to determine 
+    what area to show
+
+    This would translate it to something in the lines with.
+
+    @keyframes spriteAnimation {
+        from {
+            object-position: 0 -96px;
+        }
+
+        to {
+            object-position: -384px -96px;
+        }
+    }
+
+    PS. the multipling * -1 at the end is to turn the 
+    positive number in to a negative one
+*/
 @keyframes spriteAnimation {
     from {
         object-position: 0 calc((var(--current-sprite-animation) * var(--sprite-size)) * -1);
