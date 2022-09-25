@@ -24,7 +24,7 @@ const duck = {
         this.element.removeAttribute(this.currentAnimationState)
 
         // set the new state
-        this.element.setAttribute(newState, "")
+        this.element.setAttribute("data-animation-state", newState)
 
         // update the current stored state
         this.currentAnimationState = newState

@@ -49,7 +49,7 @@ PS. the images are hosted on firebase to make the demo work on StackBlitz
 4. Start up the development environment
    ```sh
    npm run dev   
-   
+   ```
 <!-- CONTACT -->
 ## Contact
 

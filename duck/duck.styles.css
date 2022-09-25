@@ -37,11 +37,11 @@
     - "idle" on the first row
     - "running" on the second row
 */
-.duck[idle] .sprite {
+.duck[data-animation-state="idle"] .sprite {
     --current-sprite-animation: 0;
 }
 
-.duck[running] .sprite {
+.duck[data-animation-state="running"] .sprite {
     --current-sprite-animation: 1;
 }
 
