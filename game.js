@@ -20,9 +20,6 @@ const duck = {
         // if the state is the same as the one already applied, do nothing
         if (this.currentAnimationState === newState) return
 
-        // remove the current state
-        this.element.removeAttribute(this.currentAnimationState)
-
         // set the new state
         this.element.setAttribute("data-animation-state", newState)
 
